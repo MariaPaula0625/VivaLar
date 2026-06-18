@@ -24,6 +24,9 @@ export default function App() {
       <Route path="/login" element={<Login />} />
       <Route path="/register" element={<Register />} />
       <Route path="/seller/dashboard" element={<SellerRoute><Dashboard /></SellerRoute>} />
+      <Route path="/produto/:id" element={<PrivateRoute><ProductDetail /></PrivateRoute>} />
     </Routes>
   )
 }
+
+import ProductDetail from './pages/ProductDetail'
