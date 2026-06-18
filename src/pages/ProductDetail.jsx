@@ -7,6 +7,7 @@ export default function ProductDetail() {
   const navigate = useNavigate()
   const [produto, setProduto] = useState(null)
   const [loading, setLoading] = useState(true)
+  const { addItem } = useCart()
 
   useEffect(() => {
     async function carregar() {
@@ -40,7 +41,9 @@ export default function ProductDetail() {
           <p className="text-gray-600 text-sm mb-4">{produto.description}</p>
           <p className="text-sm text-gray-400 mb-6">Vendedor: {produto.sellerName}</p>
           <p className="text-sm text-gray-400 mb-6">Estoque: {produto.stock} unidades</p>
-          <button className="w-full bg-blue-600 text-white py-3 rounded-lg font-medium hover:bg-blue-700">
+          <button
+            onClick={() => addItem(produto)}
+            className="w-full bg-blue-600 text-white py-3 rounded-lg font-medium hover:bg-blue-700">
             Adicionar ao carrinho
           </button>
         </div>
@@ -48,3 +51,5 @@ export default function ProductDetail() {
     </div>
   )
 }
+
+import { useCart } from '../contexts/CartContext'

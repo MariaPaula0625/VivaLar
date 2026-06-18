@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react'
 import { useAuth } from '../contexts/AuthContext'
 import { buscarProdutos } from '../services/produtos'
 import ProductCard from '../components/ProductCard'
+import Navbar from '../components/Navbar'
 import { Link } from 'react-router-dom'
 
 const categorias = ['Todos', 'Móveis', 'Eletrônicos', 'Roupas', 'Calçados', 'Decoração', 'Outros']
@@ -29,18 +30,7 @@ export default function Home() {
 
   return (
     <div className="min-h-screen bg-gray-50">
-      <header className="bg-white shadow-sm px-8 py-4 flex items-center justify-between">
-        <h1 className="text-xl font-semibold text-blue-600">VivaLar</h1>
-        <div className="flex items-center gap-4">
-          {user?.role === 'seller' && (
-            <Link to="/seller/dashboard" className="text-sm text-blue-600 hover:underline">
-              Painel do vendedor
-            </Link>
-          )}
-          <span className="text-sm text-gray-500">{user?.name}</span>
-          <button onClick={logout} className="text-sm text-red-500 hover:underline">Sair</button>
-        </div>
-      </header>
+      <Navbar />
 
       <main className="max-w-6xl mx-auto px-8 py-8">
         <input

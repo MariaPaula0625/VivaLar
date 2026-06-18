@@ -3,6 +3,10 @@ import { useAuth } from './contexts/AuthContext'
 import Home from './pages/Home'
 import Login from './pages/Login'
 import Register from './pages/Register'
+import ProductDetail from './pages/ProductDetail'
+import Cart from './pages/Cart'
+import Checkout from './pages/Checkout'
+import Orders from './pages/Orders'
 import Dashboard from './pages/seller/Dashboard'
 
 function PrivateRoute({ children }) {
@@ -23,10 +27,11 @@ export default function App() {
       <Route path="/" element={<PrivateRoute><Home /></PrivateRoute>} />
       <Route path="/login" element={<Login />} />
       <Route path="/register" element={<Register />} />
-      <Route path="/seller/dashboard" element={<SellerRoute><Dashboard /></SellerRoute>} />
       <Route path="/produto/:id" element={<PrivateRoute><ProductDetail /></PrivateRoute>} />
+      <Route path="/carrinho" element={<PrivateRoute><Cart /></PrivateRoute>} />
+      <Route path="/checkout" element={<PrivateRoute><Checkout /></PrivateRoute>} />
+      <Route path="/pedidos" element={<PrivateRoute><Orders /></PrivateRoute>} />
+      <Route path="/seller/dashboard" element={<SellerRoute><Dashboard /></SellerRoute>} />
     </Routes>
   )
 }
-
-import ProductDetail from './pages/ProductDetail'
